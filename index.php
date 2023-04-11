@@ -18,7 +18,7 @@
 				<a href='setup1.php' target="_blank" >  Ir a Setup</a>
 			</li>
 			<li>
-		                <a href='/index2.php' target="_blank" > Ir a App</a> 
+		                <a href='/index2.php' target="_blank" > Ir a Appserv</a> 
 			</li>
 			<li>
             			<a href="/phpMyAdmin/" target="_blank" >Visit the AppServ Open Project</a>
