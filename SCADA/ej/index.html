@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uniendo cajas con líneas</title>
+	<style>
+		.box {
+			width: 200px;
+			padding: 20px;
+			border: 1px solid black;
+			border-radius: 10px;
+			position: relative; /* hacemos que la posición de la caja sea relativa para poder posicionar el ::before */
+		}
+
+		.box:not(:last-child) {
+			margin-right: 20px;
+		}
+
+		.box::before { /* aplicamos el borde superior a la pseudo-clase ::before */
+			content: "";
+			display: block;
+			position: absolute;
+			top: -10px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<h3>Título de la caja 1</h3>
+			<p>Contenido de la caja 1</p>
+
+			<div class="box">
+			<h3>Título de la caja 2</h3>
+			<p>Contenido de la caja 2</p>
+		</div>
+		<div class="box">
+			<h3>Título de la caja 3</h3>
+			<p>Contenido de la caja 3</p>
+		</div>
+
+		</div>
+		
+	</div>
+</body>
+</html>

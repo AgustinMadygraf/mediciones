@@ -1,0 +1,970 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+<style>
+    .amcharts-chart-div a{
+        display: none!important;
+    }
+    .ui.card.card--chart {
+        height: 100%!important;
+    }
+    .ui.card.card--chart .chart {
+        max-height: unset!important;
+    }
+    .ui.tab.fluid.card.padded.card--chart{
+        margin-bottom: 10px;
+    }
+    .menuFixed{
+        background: #00C3A5;
+        position: fixed;
+        top: 70px;
+        right: 17px;
+        padding: 3px 0 10px;
+        z-index: 999;
+        border-radius: 0 0 15px 15px;
+        flex-direction: column;
+    }
+    .menuFixed .item{
+        color: #FFFFFF!important;
+        font-size: 12px;
+        margin: 0;
+        padding: 6px 8px;
+    }
+    .menuFixed .item.active{
+        color: #c1bcbc!important;
+        background-color: #FFFFFF!important;
+    }
+    .menu-horas.right.menu {
+        display: none !important;
+    }
+    #menu-horas {
+      margin-bottom: 10px !important;
+    }
+    @media (max-width: 767px) {
+      .ui.small.header.subheader {
+        font-size: 15px !important;
+      }
+      #menu-horas.left.menu {
+        display: none;
+      }
+      .menu-horas.right.menu {
+        display: block !important;
+        font-size: 11px;
+        float: right;
+      }
+      a.item.zoom-level {
+        padding: 5px 5px !important;
+      }
+      .ui.secondary.menu.custom-menu .ui.header.subheader {
+        display: none !important;
+      }
+    }
+    @media (max-width: 360px) {
+		.block.block--device .custom-menu.menu.menu-device .item {
+			margin: 0px !important;
+		}
+	}
+</style>
+
+    
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="00C3A5" />
+<link rel="stylesheet" media="all" href="/static/app/assets/css/screen.css?v=4" />
+<link rel="stylesheet" media="all" href="/static/vendor/assets/css/_calendar.css?v=4" />
+<link rel="stylesheet" media="all" href="/static/app/assets/css/custom.css" />
+<link rel="icon" type="image/png" sizes="32x32" href="/static/app/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/app/assets/images/favicon-16x16.png">
+
+<link rel="stylesheet" media="all" href="/static/app/assets/css/smart.css?v=1" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90785658-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-90785658-2');
+</script>
+<!-- Global site tag (gtag.js) - Google Ads: 857289227 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-857289227"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-857289227');
+</script>
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-857289227/lrUgCLyIgdsBEIvk5JgD'});
+</script>
+
+
+</head>
+<body>
+
+
+
+
+
+<header class="site-header header--fixed header--device">
+  <div class="header__device">
+    <a href="/dispositivos/" class="btn-back"><i class="angle left icon"></i></a>
+    <!--/DACDACDAC-->
+    <div class="">
+      <div class="ui header header--title">Dispositivo</div>
+      <div class="ui header">Maquina de Bolsas
+        <div class="ui mini label"> </div>
+      </div>
+    </div>
+  </div>
+  <div class="logo logo--size-sm logo--opacity-60"></div>
+  <a href="#" class="btn-hamburger"><span></span></a>
+  <div class="site-header__menu">
+    <a href="#" class="btn-close"></a>
+    <nav class="site-header__nav">
+      <a href="/dispositivos/" 
+        >Dispositivos</a>
+      <a href="/cuenta/" >Cuenta</a>
+      <a href="/soporte" >Soporte</a>
+      <a id="logout" href="/logout/" data-username="mantenimiento.madygraf1">Logout</a>
+    </nav>
+    <!--/header-nav-->
+    <ul class="site-header__data">
+      <div class="ui grid">
+        <div class="footer-underscore">
+          <div class="underscore"></div>
+        </div>
+        <div class="footer-text-home">smart
+        </div>
+        <div class="footer-divider-home">
+          <img src="../static/app/assets/images/pie-linea-horizontal.png" alt="">
+        </div>
+        <div class="footer-logo-home">
+          <img src="http://home.testing.powermeter.com.ar/static/app/assets/images/logo-white.svg" alt="">
+        </div>
+      </div>
+      <div class="footer-data">
+        <ul>
+          <li>Sucre 942, PB2, CABA.</li>
+          <li>(011) 6091-4859</li>
+          <li>Ventas: ventas@powermeter.com.ar</li>
+          <li>Consultas Técnicas: info@powermeter.com.ar</li>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</header>
+
+
+<div class="block block--device">
+    <div class="ui fluid dropdown button dropdown--device">
+        <div class="text" id="menu-mobile-titulo">Dispositivo</div>
+        <i class="dropdown icon"></i>
+        <div class="menu" id="menu-mobile">
+            <a href="/resumen/1285" class="item ">Resumen</a>
+<a href="/ultimosdatos/1285" class="item  active ">Últimos datos</a>
+<a href="/historico/1285" class="item ">Histórico</a>
+<a href="/facturacion/1285" class="item " >Facturación</a>
+<!--a href="/calidad/1285" class="item  isDisabled  ">Calidad de energía</a-->
+<a href="/eventos/1285" class="item  isDisabled  ">Eventos</a>
+<a href="/ajustes/1285" class="item ">Ajustes</a>
+<!-- <a href="localizaciones.html" class="item">Localizaciones</a> -->
+
+        </div>
+    </div>
+
+    <div class="container-full">
+        <h1 class="ui header header--title">Maquina de Bolsas</h1>
+        <div class="ui secondary pointing menu custom-menu">
+            <h2 class="ui header header--primary">
+                <div class="ui mini label">Estado
+                    
+                    <i class="circle icon red wandy-no-margin-right"></i>
+                    
+                </div>
+            </h2>
+
+            <div class="right menu">
+                <a href="/resumen/1285" class="item ">Resumen</a>
+<a href="/ultimosdatos/1285" class="item  active ">Últimos datos</a>
+<a href="/historico/1285" class="item ">Histórico</a>
+<a href="/facturacion/1285" class="item " >Facturación</a>
+<!--a href="/calidad/1285" class="item  isDisabled  ">Calidad de energía</a-->
+<a href="/eventos/1285" class="item  isDisabled  ">Eventos</a>
+<a href="/ajustes/1285" class="item ">Ajustes</a>
+<!-- <a href="localizaciones.html" class="item">Localizaciones</a> -->
+
+            </div>
+        </div>
+        
+
+<div class="ui secondary menu custom-menu menu-device">
+    <a href="#" class="item active" data-tab="tension">Tensión</a>
+    <a href="#" class="item" data-tab="corriente">Corriente</a>
+    <a href="#" class="item" data-tab="potencia-activa">Potencia activa</a>
+    <a href="#" class="item" data-tab="potencia-reactiva">Potencia reactiva</a>
+</div>
+
+<div class="ui secondary menu custom-menu mobile-hidden">
+  <!-- <div class="ui header subheader">Últimos datos</div> -->
+  <div id="menu-horas" class="left menu">
+    <a class="item zoom-level" data-h="2"><b>2</b>&nbsp;horas</a>
+    <a class="item zoom-level active" data-h="6"><b>6</b>&nbsp;horas</a>
+    <a class="item zoom-level" data-h="24"><b>24</b>&nbsp;horas</a>
+    <a class="item zoom-level" data-h="168"><b>7</b>&nbsp;días</a>
+  </div>
+</div>
+
+<div class="ui tab fluid card padded card--chart active" data-tab="tension">
+    <div class="ui small header subheader">Tensión
+      <div class="menu-horas right menu">
+        <a class="item zoom-level" data-h="2">2 Horas</a>
+        <a class="item zoom-level " data-h="6">6 Horas</a>
+        <a class="item zoom-level" data-h="24">24 Horas</a>
+        <a class="item zoom-level" data-h="168">7 Días</a>
+    </div>
+    </div>
+    <div class="chart">
+        <div id="chartdiv-V" class="chart__item"></div>
+    </div>
+</div>
+<div class="ui tab fluid card padded card--chart" data-tab="corriente">
+    <div class="ui small header subheader">Corriente
+      <div class="menu-horas right menu">
+        <a class="item zoom-level" data-h="2">2 Horas</a>
+        <a class="item zoom-level " data-h="6">6 Horas</a>
+        <a class="item zoom-level" data-h="24">24 Horas</a>
+        <a class="item zoom-level" data-h="168">7 Días</a>
+    </div>
+    </div>
+    <div class="chart">
+        <div id="chartdiv-I" class="chart__item"></div>
+    </div>
+</div>
+<div class="ui tab fluid card padded card--chart" data-tab="potencia-activa">
+    <div class="ui small header subheader">Potencia activa
+      <div class="menu-horas right menu">
+        <a class="item zoom-level" data-h="2">2 Horas</a>
+        <a class="item zoom-level " data-h="6">6 Horas</a>
+        <a class="item zoom-level" data-h="24">24 Horas</a>
+        <a class="item zoom-level" data-h="168">7 Días</a>
+    </div>
+    </div>
+    <div class="chart">
+        <div id="chartdiv-P" class="chart__item"></div>
+    </div>
+</div>
+<div class="ui tab fluid card padded card--chart" data-tab="potencia-reactiva">
+    <div class="ui small header subheader">Potencia reactiva
+      <div class="menu-horas right menu">
+        <a class="item zoom-level" data-h="2">2 Horas</a>
+        <a class="item zoom-level " data-h="6">6 Horas</a>
+        <a class="item zoom-level" data-h="24">24 Horas</a>
+        <a class="item zoom-level" data-h="168">7 Días</a>
+    </div>
+    </div>
+    <div class="chart">
+        <div id="chartdiv-Q" class="chart__item"></div>
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+<footer class="site-footer">
+	<div class="ui grid middle aligned">
+		<div class="one wide column aligned">
+		</div>
+		<div class="one wide column aligned">
+			<img src="/static/app/assets/images/pie-logo-smart.png" alt="">
+		</div>
+		<div class="column w-1">
+			<img src="../static/app/assets/images/pie-linea-horizontal.png" alt="">
+		</div>
+		<div class="column aligned w-15">
+			<img src="../static/app/assets/images/pie-logo-power.png" alt="">
+		</div>
+		<div class="column w-1">
+			<img src="../static/app/assets/images/pie-linea-horizontal.png" alt="">
+		</div>
+		<div class="column w-20">
+			<ul class="site-footer-data">
+				<li>Sucre 942, PB2, CABA.</li>
+				<li>(011) 6091-4859</li>
+				<li>Ventas: ventas@powermeter.com.ar</li>
+				<li>Consultas Técnicas: info@powermeter.com.ar</li>
+			</ul>
+		</div>
+		<div class="seven wide column">
+		</div>
+	</div>
+</footer>
+
+
+<!-- jQuery (https://jquery.com) -->
+<script type="text/javascript" src="/static/vendor/assets/js/jquery-3.2.1.min.js"></script>
+
+<!-- Semantic UI (https://semantic-ui.com) -->
+<script type="text/javascript" src="/static/vendor/assets/js/semantic.min.js"></script>
+
+<!-- Semantic UI Calendar (https://github.com/mdehoog/Semantic-UI-Calendar) -->
+<script type="text/javascript" src="/static/vendor/assets/js/calendar.min.js"></script>
+
+<!-- Slick carousel (http://kenwheeler.github.io/slick) -->
+<script type="text/javascript" src="/static/vendor/assets/js/slick.min.js"></script>
+
+<!-- Form validation (https://semantic-ui.com/behaviors/form.html) -->
+<script type="text/javascript" src="/static/app/assets/js/form.min.js"></script>
+
+<!-- Funciones propias -->
+<script type="text/javascript" src="/static/app/assets/js/app.min.js"></script>
+<!--<script type="text/javascript" src="http://beew.com.ar/clientes/powermeter/app/assets/js/app.min.js"></script>-->
+
+<script>
+  var colores_fases_solidos = {
+    'R': 'rgba(255, 99, 132, 0.8)',
+    'S': 'rgba(0, 195, 165, 0.8)',
+    'T': 'rgba(255, 180, 40, 0.8)',
+    'total': 'rgba(100, 100, 100, 0.8)',
+  };
+
+  var colores_fases_transparentes = {
+    'R': 'rgba(255, 99, 132, 0.3)',
+    'S': 'rgba(0, 195, 165, 0.3)',
+    'T': 'rgba(255, 180, 40, 0.3)',
+    'total': 'rgba(100, 100, 100, 0.3)',
+  }
+
+  var colores_simples_solidos = {
+    'principal': 'rgba(0, 195, 165, 0.8)',
+    'secundario': 'rgba(69, 69, 69, 0.8)',
+  }
+
+  var colores_simples_transparentes = {
+    'principal': 'rgba(0, 195, 165, 0.3)',
+    'secundario': 'rgba(69, 69, 69, 0.3)',
+  }
+</script>
+
+
+
+
+<script>
+    $("#menu-mobile-titulo").text($("#menu-mobile").find(".active").text());
+</script>
+
+<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
+
+<script>
+
+  var fases_nombre_dict = {"R": "R", "S": "S", "T": "T"};
+  var fases_nombre = [fases_nombre_dict.R, fases_nombre_dict.S, fases_nombre_dict.T];
+
+  var dataM =
+    
+    [   { date: '2023-05-10 17:35:00',value1V: 227.7,value2V: 229.8,value3V: 228.8,value1I: 1.3,value2I: 1.5,value3I: 1.4,value1P: -39,value2P: -103,value3P: -47,value1Q: -13.0,value2Q: 25.0,value3Q: 7.0,},
+        { date: '2023-05-10 17:40:00',value1V: 227.7,value2V: 229.5,value3V: 228.1,value1I: 1.3,value2I: 1.3,value3I: 1.2,value1P: 66,value2P: 87,value3P: 48,value1Q: 12.0,value2Q: -25.0,value3Q: -16.0,},
+        { date: '2023-05-10 17:45:00',value1V: 227.7,value2V: 229.8,value3V: 228.7,value1I: 1.3,value2I: 1.4,value3I: 1.1,value1P: 43,value2P: 84,value3P: 31,value1Q: -5.0,value2Q: -35.0,value3Q: -4.0,},
+        { date: '2023-05-10 17:50:01',value1V: 226.3,value2V: 228.6,value3V: 227.6,value1I: 1.4,value2I: 1.5,value3I: 1.3,value1P: 33,value2P: 86,value3P: 43,value1Q: 5.0,value2Q: -24.0,value3Q: 5.0,},
+        { date: '2023-05-10 17:55:00',value1V: 225.8,value2V: 228.2,value3V: 226.9,value1I: 1.2,value2I: 1.2,value3I: 1.2,value1P: 34,value2P: 91,value3P: 47,value1Q: 10.0,value2Q: -23.0,value3Q: -10.0,},
+        { date: '2023-05-10 18:00:00',value1V: 226.7,value2V: 229.1,value3V: 227.7,value1I: 1.2,value2I: 1.4,value3I: 1.2,value1P: 45,value2P: 84,value3P: 50,value1Q: 3.0,value2Q: -23.0,value3Q: -10.0,},
+        { date: '2023-05-10 18:05:01',value1V: 225.1,value2V: 227.8,value3V: 226.2,value1I: 0.9,value2I: 1.3,value3I: 1.3,value1P: 31,value2P: 95,value3P: 48,value1Q: 3.0,value2Q: -32.0,value3Q: -4.0,},
+        { date: '2023-05-10 18:10:01',value1V: 227.8,value2V: 230.4,value3V: 229.0,value1I: 1.4,value2I: 1.3,value3I: 1.2,value1P: 31,value2P: 99,value3P: 41,value1Q: 8.0,value2Q: -30.0,value3Q: -13.0,},
+        { date: '2023-05-10 18:15:00',value1V: 228.2,value2V: 230.5,value3V: 229.1,value1I: 1.1,value2I: 1.2,value3I: 1.2,value1P: 41,value2P: 80,value3P: 44,value1Q: 9.0,value2Q: -35.0,value3Q: -13.0,},
+        { date: '2023-05-10 18:20:01',value1V: 228.4,value2V: 231.2,value3V: 229.7,value1I: 1.2,value2I: 1.2,value3I: 1.2,value1P: 51,value2P: 88,value3P: 43,value1Q: 2.0,value2Q: -14.0,value3Q: -15.0,},
+        { date: '2023-05-10 18:25:00',value1V: 228.9,value2V: 231.6,value3V: 230.1,value1I: 1.0,value2I: 1.4,value3I: 1.2,value1P: 36,value2P: 86,value3P: 42,value1Q: 7.0,value2Q: -23.0,value3Q: -19.0,},
+        { date: '2023-05-10 18:30:00',value1V: 227.8,value2V: 230.9,value3V: 229.4,value1I: 1.2,value2I: 1.3,value3I: 1.2,value1P: 36,value2P: 92,value3P: 37,value1Q: 4.0,value2Q: -30.0,value3Q: -6.0,},
+        { date: '2023-05-10 18:35:01',value1V: 229.5,value2V: 232.5,value3V: 230.6,value1I: 1.2,value2I: 1.2,value3I: 1.2,value1P: 23,value2P: 77,value3P: 44,value1Q: 14.0,value2Q: -23.0,value3Q: -11.0,},
+        { date: '2023-05-10 18:40:00',value1V: 228.7,value2V: 231.8,value3V: 230.3,value1I: 1.2,value2I: 1.2,value3I: 1.2,value1P: 43,value2P: 89,value3P: 35,value1Q: 8.0,value2Q: -26.0,value3Q: -15.0,},
+        { date: '2023-05-10 18:45:01',value1V: 229.2,value2V: 232.3,value3V: 230.8,value1I: 1.2,value2I: 1.4,value3I: 1.1,value1P: 48,value2P: 90,value3P: 26,value1Q: 8.0,value2Q: -15.0,value3Q: -22.0,},
+        { date: '2023-05-13 15:05:00',value1V: 227.4,value2V: 230.2,value3V: 228.7,value1I: 1.0,value2I: 1.3,value3I: 1.2,value1P: 30,value2P: 76,value3P: 38,value1Q: 2.0,value2Q: -44.0,value3Q: -26.0,},]
+    
+
+  for (i in dataM) {
+    dataM[i]['valuePT'] = dataM[i]['value1P'] + dataM[i]['value2P'] + dataM[i]['value3P'];
+    dataM[i]['valueQT'] = dataM[i]['value1Q'] + dataM[i]['value2Q'] + dataM[i]['value3Q'];
+  }
+
+  // Tensión
+  var chartConfig = {
+    "type": "serial",
+    "theme": "light",
+    "mouseWheelZoomEnabled":false,
+    "zoomOutText": '', // Remueve la lupa de Show All
+    "dataDateFormat": "YYYY-MM-DD HH:NN:SS",
+    "usePrefixes": true,
+    "legend": {
+      "useGraphSettings": true,
+      "markerSize": 8,
+    },
+      "responsive": {
+      "enabled": true
+    },
+    "numberFormatter":{
+      'precision': 2,
+    },
+    "colors": [
+      colores_fases_solidos.R, colores_fases_solidos.S,
+      colores_fases_solidos.T, colores_fases_solidos.total,
+      // colores_fases_transparentes.R, colores_fases_transparentes.S,
+      // colores_fases_transparentes.T, colores_fases_transparentes.total,
+    ],
+    "valueAxes": [{
+      "id": "v1",
+      "axisAlpha": 0,
+      "position": "left",
+      "unitPosition": "right",
+      "gridThickness": 1, //remueve las lineas horizontales del fondo
+      "unit": " V"
+    },{
+      "id": "v2",
+      "axisAlpha": 0,
+      "position": "left",
+    }],
+      "graphs": [{
+        "id": "g1",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[0],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value1V",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] V</b></span>",
+        "precision": -1
+
+      },{
+        "id": "g2",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[1],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value2V",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] V</b></span>",
+        "precision": -1
+      },{
+        "id": "g3",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[2],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value3V",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] V</b></span>",
+        "precision": -1
+      },
+    ],
+    "chartScrollbar": {
+      "graph": "g1",
+      "oppositeAxis":false,
+      "offset":30,
+      "scrollbarHeight": 50,
+      "backgroundAlpha": 0,
+      "selectedBackgroundAlpha": 0.1,
+      "selectedBackgroundColor": "#888888",
+      "graphFillAlpha": 0,
+      "graphLineAlpha": 0.5,
+      "selectedGraphFillAlpha": 0,
+      "selectedGraphLineAlpha": 1,
+      "autoGridCount":true,
+      "color":"#AAAAAA",
+      "updateOnReleaseOnly": true
+    },
+
+    "chartCursor": {
+      "limitToGraph":"g1",
+      "categoryBalloonDateFormat": "MM-DD HH:NN",
+    },
+    "categoryField": "date",
+    "categoryAxis": {
+      "minPeriod": "mm",
+      "parseDates": true,
+      "axisColor": "#DADADA",
+      "dashLength": 1,
+      "oppositeAxis":false,
+      "minorGridEnabled": true,
+      "gridThickness": 1 //remueve las lineas verticales del fondo
+    },
+    "export": {
+      "enabled": true
+    },
+    "dataProvider": dataM,
+  };
+
+  var chartConfigV = JSON.parse(JSON.stringify(chartConfig));
+  var chartV = AmCharts.makeChart("chartdiv-V", chartConfigV);
+
+  
+
+  // Corriente
+  var chartConfig = {
+    "type": "serial",
+    "theme": "light",
+    "mouseWheelZoomEnabled":false,
+    "zoomOutText": '', // Remueve la lupa de Show All
+    "dataDateFormat": "YYYY-MM-DD HH:NN:SS",
+    "usePrefixes": true,
+    "legend": {
+      "useGraphSettings": true,
+      "markerSize": 8,
+    },
+      "responsive": {
+      "enabled": true
+    },
+    "numberFormatter":{
+      'precision': 2,
+    },
+    "colors": [
+      colores_fases_solidos.R, colores_fases_solidos.S,
+      colores_fases_solidos.T, colores_fases_solidos.total,
+      // colores_fases_transparentes.R, colores_fases_transparentes.S,
+      // colores_fases_transparentes.T, colores_fases_transparentes.total,
+    ],
+    "valueAxes": [{
+      "id": "v1",
+      "axisAlpha": 0,
+      "position": "left",
+      "unitPosition": "right",
+      "gridThickness": 1, //remueve las lineas horizontales del fondo
+      "unit": " A"
+    },{
+      "id": "v2",
+      "axisAlpha": 0,
+      "position": "left",
+    }],
+      "graphs": [{
+        "id": "g1",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[0],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value1I",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] A</b></span>",
+        "precision": -1
+
+      },{
+        "id": "g2",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[1],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value2I",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] A</b></span>",
+        "precision": -1
+      },{
+        "id": "g3",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[2],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value3I",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] A</b></span>",
+        "precision": -1
+      },
+    ],
+    "chartScrollbar": {
+      "graph": "g1",
+      "oppositeAxis":false,
+      "offset":30,
+      "scrollbarHeight": 50,
+      "backgroundAlpha": 0,
+      "selectedBackgroundAlpha": 0.1,
+      "selectedBackgroundColor": "#888888",
+      "graphFillAlpha": 0,
+      "graphLineAlpha": 0.5,
+      "selectedGraphFillAlpha": 0,
+      "selectedGraphLineAlpha": 1,
+      "autoGridCount":true,
+      "color":"#AAAAAA",
+      "updateOnReleaseOnly": true
+    },
+
+    "chartCursor": {
+      "limitToGraph":"g1",
+      "categoryBalloonDateFormat": "MM-DD HH:NN",
+    },
+    "categoryField": "date",
+    "categoryAxis": {
+      "minPeriod": "mm",
+      "parseDates": true,
+      "axisColor": "#DADADA",
+      "dashLength": 1,
+      "oppositeAxis":false,
+      "minorGridEnabled": true,
+      "gridThickness": 1 //remueve las lineas verticales del fondo
+    },
+    "export": {
+      "enabled": true
+    },
+    "dataProvider": dataM,
+  };
+  var chartConfigI = JSON.parse(JSON.stringify(chartConfig));
+  var chartI = AmCharts.makeChart("chartdiv-I", chartConfigI);
+
+
+  // Potencia activa (P)
+  var chartConfig = {
+    "type": "serial",
+    "theme": "light",
+    "mouseWheelZoomEnabled":false,
+    "zoomOutText": '', // Remueve la lupa de Show All
+    "dataDateFormat": "YYYY-MM-DD HH:NN:SS",
+    "legend": {
+      "useGraphSettings": true,
+      "markerSize": 8,
+    },
+      "responsive": {
+      "enabled": true
+    },
+    "numberFormatter":{
+      'precision': 2,
+    },
+    "colors": [
+      colores_fases_solidos.R, colores_fases_solidos.S,
+      colores_fases_solidos.T, colores_fases_solidos.total,
+      // colores_fases_transparentes.R, colores_fases_transparentes.S,
+      // colores_fases_transparentes.T, colores_fases_transparentes.total,
+    ],
+    "valueAxes": [{
+      "id": "v1",
+      "axisAlpha": 0,
+      "position": "left",
+      "unitPosition": "right",
+      "gridThickness": 1, //remueve las lineas horizontales del fondo
+      "unit": "W"
+    },{
+      "id": "v2",
+      "axisAlpha": 0,
+      "position": "left",
+    }],
+      "graphs": [{
+        "id": "g1",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[0],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value1P",
+        "balloonText": "<span style='font-size:14px'><b>[[value]]W</b></span>",
+        "precision": -1
+
+      },{
+        "id": "g2",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[1],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value2P",
+        "balloonText": "<span style='font-size:14px'><b>[[value]]W</b></span>",
+        "precision": -1
+      },{
+        "id": "g3",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[2],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value3P",
+        "balloonText": "<span style='font-size:14px'><b>[[value]]W</b></span>",
+        "precision": -1
+      },
+    ],
+    "chartScrollbar": {
+      "graph": "g1",
+      "oppositeAxis":false,
+      "offset":30,
+      "scrollbarHeight": 50,
+      "backgroundAlpha": 0,
+      "selectedBackgroundAlpha": 0.1,
+      "selectedBackgroundColor": "#888888",
+      "graphFillAlpha": 0,
+      "graphLineAlpha": 0.5,
+      "selectedGraphFillAlpha": 0,
+      "selectedGraphLineAlpha": 1,
+      "autoGridCount":true,
+      "color":"#AAAAAA",
+      "updateOnReleaseOnly": true
+    },
+
+    "chartCursor": {
+      "limitToGraph":"g1",
+      "categoryBalloonDateFormat": "MM-DD HH:NN",
+    },
+    "categoryField": "date",
+    "categoryAxis": {
+      "minPeriod": "mm",
+      "parseDates": true,
+      "axisColor": "#DADADA",
+      "dashLength": 1,
+      "oppositeAxis":false,
+      "minorGridEnabled": true,
+      "gridThickness": 1 //remueve las lineas verticales del fondo
+    },
+    "export": {
+      "enabled": true
+    },
+    "dataProvider": dataM,
+  };
+  var chartConfigP = JSON.parse(JSON.stringify(chartConfig));
+  chartConfigP['graphs'].push({
+    "id": "g4",
+    "lineColor": "black",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "title": "total",
+    "useLineColorForBulletBorder": true,
+    "valueField": "valuePT",
+    "balloonText": "<span style='font-size:14px'><b>[[value]]W</b></span>",
+    "precision": -1
+  });
+
+  var chartP = AmCharts.makeChart("chartdiv-P", chartConfigP);
+
+  // Potencia reactiva (Q)
+  var chartConfig = {
+    "type": "serial",
+    "theme": "light",
+    "mouseWheelZoomEnabled":false,
+    "zoomOutText": '', // Remueve la lupa de Show All
+    "dataDateFormat": "YYYY-MM-DD HH:NN:SS",
+    "usePrefixes": true,
+    "legend": {
+      "useGraphSettings": true,
+      "markerSize": 8,
+    },
+      "responsive": {
+      "enabled": true
+    },
+    "numberFormatter":{
+      'precision': 2,
+    },
+    "colors": [
+      colores_fases_solidos.R, colores_fases_solidos.S,
+      colores_fases_solidos.T, colores_fases_solidos.total,
+      // colores_fases_transparentes.R, colores_fases_transparentes.S,
+      // colores_fases_transparentes.T, colores_fases_transparentes.total,
+    ],
+    "valueAxes": [{
+      "id": "v1",
+      "axisAlpha": 0,
+      "position": "left",
+      "unitPosition": "right",
+      "gridThickness": 1, //remueve las lineas horizontales del fondo
+      "unit": " VAR"
+    },{
+      "id": "v2",
+      "axisAlpha": 0,
+      "position": "left",
+    }],
+      "graphs": [{
+        "id": "g1",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[0],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value1Q",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] VAR</b></span>",
+        "precision": -1
+
+      },{
+        "id": "g2",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[1],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value2Q",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] VAR</b></span>",
+        "precision": -1
+      },{
+        "id": "g3",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "title": fases_nombre[2],
+        "useLineColorForBulletBorder": true,
+        "valueField": "value3Q",
+        "balloonText": "<span style='font-size:14px'><b>[[value]] VAR</b></span>",
+        "precision": -1
+      },
+    ],
+    "chartScrollbar": {
+      "graph": "g1",
+      "oppositeAxis":false,
+      "offset":30,
+      "scrollbarHeight": 50,
+      "backgroundAlpha": 0,
+      "selectedBackgroundAlpha": 0.1,
+      "selectedBackgroundColor": "#888888",
+      "graphFillAlpha": 0,
+      "graphLineAlpha": 0.5,
+      "selectedGraphFillAlpha": 0,
+      "selectedGraphLineAlpha": 1,
+      "autoGridCount":true,
+      "color":"#AAAAAA",
+      "updateOnReleaseOnly": true
+    },
+
+    "chartCursor": {
+      "limitToGraph":"g1",
+      "categoryBalloonDateFormat": "MM-DD HH:NN",
+    },
+    "categoryField": "date",
+    "categoryAxis": {
+      "minPeriod": "mm",
+      "parseDates": true,
+      "axisColor": "#DADADA",
+      "dashLength": 1,
+      "oppositeAxis":false,
+      "minorGridEnabled": true,
+      "gridThickness": 1 //remueve las lineas verticales del fondo
+    },
+    "export": {
+      "enabled": true
+    },
+    "dataProvider": dataM,
+  };
+
+  var chartConfigQ = JSON.parse(JSON.stringify(chartConfig));
+
+  chartConfigQ['graphs'].push({
+    "id": "g4",
+    "lineColor": "black",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "title": "total",
+    "useLineColorForBulletBorder": true,
+    "valueField": "valueQT",
+    "balloonText": "<span style='font-size:14px'><b>[[value]] VAR</b></span>",
+    "precision": -1
+  });
+
+  var chartQ = AmCharts.makeChart("chartdiv-Q", chartConfigQ);
+
+  var charts = [chartV, chartI, chartP, chartQ];
+  for (var x in charts) {
+    charts[x].addListener("zoomed", syncZoom);
+  }
+
+  function syncZoom(event) {
+    for (x in charts) {
+      if (charts[x].ignoreZoom) {
+        charts[x].ignoreZoom = false;
+      }
+      if (event.chart != charts[x]) {
+        charts[x].ignoreZoom = true;
+        charts[x].zoomToDates(event.startDate, event.endDate);
+      }
+    }
+  }
+
+  $(".zoom-level").click(function() {
+    d1 = new Date((dataM[dataM.length-1].date + "Z").replace(/\s/, 'T'));
+    d2 = new Date((dataM[dataM.length-1].date + "Z").replace(/\s/, 'T'));
+    d2.setHours(d1.getHours() - $(this).attr('data-h'));
+    $(".zoom-level.active").removeClass('active');
+
+    //dado que las horas vienen con el GMT-3, para que en los graficos
+      // se vea reflejado con la hora actual se le suman las horas GMT
+    d1.setHours(d1.getHours() + d1.getTimezoneOffset() / 60);
+    d2.setHours(d2.getHours() + d2.getTimezoneOffset() / 60);
+
+    $(this).addClass('active');
+    custom_dates = {'startDate':d2, 'endDate':d1};
+
+    syncZoom(custom_dates);
+  });
+
+  // Se cambio el document.ready de jQuery porque ejecutaba antes que los charts
+  window.onload = function() {
+      $(".zoom-level.active").click();
+      checkMenuFixed();
+  };
+
+  // Le aplica la clase menuFixed al menú de las horas para que sea flotante
+  $(function(){
+      $(document).scroll(function(){
+        checkMenuFixed();
+      });
+  });
+
+  function checkMenuFixed(){
+      if($('header').offset().top > 210) {
+          $("#menu-horas").addClass("menuFixed");
+      } else {
+          $("#menu-horas").removeClass("menuFixed");
+      }
+  }
+</script>
+
+
+
+<script>
+  $(document).ready(function () {
+    $('a.delete').on('click', (evt) => {
+      $('.ui.modal.modal-delete .header').text($(evt.target).data('title'));
+      $('.ui.modal.modal-delete .description').text($(evt.target).data('text'));
+      $('.ui.modal.modal-delete .actions a').attr('href', $(evt.target).data('href'));
+      $('.ui.modal.modal-delete').modal('show');
+    })
+
+    $('i.question').css({'cursor': 'pointer', 'color': '#666'}).popup();
+  });
+</script>
+</body>
+</html>
