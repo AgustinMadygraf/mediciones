@@ -1,0 +1,4 @@
+click derecho Git Bash Here
+git status
+git add
+git 

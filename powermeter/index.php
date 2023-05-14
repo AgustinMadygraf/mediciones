@@ -41,7 +41,7 @@
                                                                           $rawdata[$i] = $row;
                                                                           $i++;
                                                                         }
-                              //Cerramos la base de datos
+                              //Cerramos la base de datossssss
                               desconectarBD($conexion);
                               //devolvemos rawdata
                               return $rawdata;
