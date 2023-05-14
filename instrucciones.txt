@@ -1,4 +1,6 @@
 click derecho Git Bash Here
 git status
-git add
-git 
+git add .
+git status
+git commit -m "agregar comentario sobre lo que se hizo"
+git push 
