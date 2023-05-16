@@ -6,7 +6,7 @@ print('enviar datos')
 print("")
 time.sleep(1)
 # Definir la URL del archivo procesar_powermeter.php
-url = 'http://localhost/mediciones/powermeter/procesar_powermeter.php'
+url = 'http://10.176.61.94/mediciones/powermeter/procesar_powermeter.php'
 
 # Leer el archivo CSV y ordenar por unixtime en orden descendente
 with open('datos.csv', newline='') as csvfile:

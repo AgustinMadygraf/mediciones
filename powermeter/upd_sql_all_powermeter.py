@@ -4,7 +4,7 @@ import time
 
 
 # Definir la URL del archivo procesar_powermeter.php
-url = 'http://localhost/mediciones/powermeter/procesar_powermeter.php'
+url = 'http://10.176.61.55/mediciones/powermeter/procesar_powermeter.php'
 
 # Abrir el archivo CSV y leer los datos
 with open('datos.csv', newline='') as csvfile:
