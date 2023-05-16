@@ -1,8 +1,9 @@
 
 <!DOCTYPE html>
 <html>
-<head><?php
-header('Content-Type: text/html; charset=utf-8');
+<head>
+<?php
+$pot_III_BT_A1 = 6;
 ?>
 
 	<title>SCADA</title>
@@ -33,7 +34,7 @@ header('Content-Type: text/html; charset=utf-8');
 						<div class="container">
 							<div class='box'>
 								<h3>maq de bolsas</h3>
-								<p>Valor: 5</p>
+								<p>Valor: <?php echo $pot_III_BT_A1;?></p>
 								<p>Fecha y Hora:</p>
 								<p>0000-00-00 00:00:00</p>
 							</div>

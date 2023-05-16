@@ -26,6 +26,7 @@ if n.lower() == 'n':
     exit()
 print("A continuación se enviarán todos los registros desde 'datos.csv' hacia MySQL")
 time.sleep(2) 
+print("")
 exec(open("upd_sql_all_powermeter.py").read())
 input("Presione cualquier tecla para salir")
 

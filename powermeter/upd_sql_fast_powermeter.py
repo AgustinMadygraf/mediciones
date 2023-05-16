@@ -35,14 +35,9 @@ for row in rows_to_send:
     t_q = row['T:q']
 
     # Enviar los datos al archivo procesar_powermeter.php
-    payload = {'unixtime': timestamp, 'potencia_s': s_p, 'potencia_r': r_p, 'potencia_t': t_p}
+    payload = {'unixtime': timestamp, 'potencia_s': s_p, 'potencia_r': r_p, 'potencia_t': t_p, 'v_s': s_v, 'v_r': r_v, 'v_t': t_v}
     r = requests.get(url, params=payload)
     print(r.text)  # Mostrar la respuesta del servidor
+    print("")
     time.sleep(1)
 
-# Mostrar una cuenta regresiva hasta que se reanude la ejecución del programa
-#print('Esperando 120 segundos...')
-#for i in range(5, 0, -1):
-#    print(f'Tiempo restante: {i} segundos', end='\r')
-#    time.sleep(1)
-#print('\n')

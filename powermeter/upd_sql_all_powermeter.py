@@ -29,9 +29,16 @@ with open('datos.csv', newline='') as csvfile:
         t_q = row['T:q']
 
         # Enviar los datos al archivo procesar_powermeter.php
-        payload = {'unixtime': timestamp, 'potencia_s': s_p, 'potencia_r': r_p, 'potencia_t': t_p}
-        r = requests.get(url, params=payload)
-        print(r.text)  # Mostrar la respuesta del servidor
+        f1 = float(s_p)
+        if int(f1) >= 0:
+            payload = {'unixtime': timestamp, 'potencia_s': s_p, 'potencia_r': r_p, 'potencia_t': t_p, 'v_s': s_v, 'v_r': r_v, 'v_t': t_v}
+            r = requests.get(url, params=payload)
+            print(r.text)  # Mostrar la respuesta del servidor
+        else:
+            print("El valor de potencia_s es menor que cero")
+            print("")
+
+            
 
 print("")
 print("finalizado")
