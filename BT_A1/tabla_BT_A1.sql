@@ -1,4 +1,4 @@
-CREATE TABLE `mediciones_potencia` (
+CREATE TABLE `BT_A1` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `unixtime` int(16) NOT NULL,
   `potencia_r` float NOT NULL,
@@ -6,6 +6,9 @@ CREATE TABLE `mediciones_potencia` (
   `potencia_t` float NOT NULL,
   `potencia_III` float GENERATED ALWAYS AS (((`potencia_r` + `potencia_s`) + `potencia_t`)) VIRTUAL,
   `datetime` datetime GENERATED ALWAYS AS (FROM_UNIXTIME(`unixtime`)) VIRTUAL,
+  `v_r` float NOT NULL,
+  `v_s` float NOT NULL,
+  `v_t` float NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

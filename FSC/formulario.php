@@ -29,11 +29,10 @@
   }
 
 
-
     $conn->close();
 	?>
 
-  <script type="text/javascript" src="/mediciones/includes/loader.js"></script>
+  <script type="text/javascript" src="loader.js"></script>
    <script type="text/javascript">
       google.charts.load('current', {'packages':['gauge']});
       google.charts.setOnLoadCallback(drawChart);
@@ -46,7 +45,7 @@
           ['gramos', <?php 
                  
                                                 
-                         echo "$peso_ult";
+                         echo "60";
                     ?>]
         ]);
 
@@ -107,7 +106,7 @@
 
 
   <div id="chart_div" ></div>
-  <?php //echo "peso_ult:".$peso_ult;  ?>
+  <?php echo "peso_ult:".$peso_ult;  ?>
 
 
 </body>

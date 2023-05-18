@@ -41,7 +41,7 @@
         }
 
     
-    $sql = "SELECT `unixtime`, `potencia_III`, `v_r`, `v_s`, `v_t` FROM `mediciones_potencia`  ORDER BY `mediciones_potencia`.`unixtime` DESC  ";
+    $sql = "SELECT `unixtime`, `potencia_III`, `v_r`, `v_s`, `v_t` FROM `BT_A1`  ORDER BY `BT_A1`.`unixtime` DESC  ";
     //Array Multidimensional
     echo "sql = <br>".$sql."<br.>";
     $rawdata = getArraySQL($sql);

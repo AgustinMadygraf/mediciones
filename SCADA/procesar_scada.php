@@ -18,7 +18,6 @@ if ($conn->connect_error) {
 
   $item     = $_GET['item'];
   $pot_III  = $_GET['pot_III'];
-  $pot_III  = $pot_III  /1000;
   $unixtime = $_GET['unixtime'];
   $v_r      = $_GET['v_r'];
   $v_s      = $_GET['v_s'];
@@ -40,4 +39,4 @@ if ($conn->connect_error) {
 // Cerrar conexión a la base de datos
 $conn->close();
 ?>
-<meta http-equiv='refresh' content='0;url=/mediciones/scada/index.php?'>
+<meta http-equiv='refresh' content='0;url=/mediciones/scada/index.php?actualizacion=true'>

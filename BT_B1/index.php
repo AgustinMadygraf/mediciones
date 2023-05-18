@@ -48,7 +48,7 @@
                           }
   
   
-                          $sql = "SELECT `unixtime`, `potencia_III` from `mediciones_potencia` ORDER BY `mediciones_potencia`.`unixtime` DESC";
+                          $sql = "SELECT `unixtime`, `potencia_III` from `BT_B1` ORDER BY `BT_B1`.`unixtime` DESC";
                           //Array Multidimensional
                           //echo "sql = ".$sql."<br.>";
                           $rawdata = getArraySQL($sql);
@@ -68,7 +68,7 @@
                                                           }
                                                 });
 
-                          $('#container').highcharts({  title:    {   text: (function() { return Highcharts.dateFormat("%A, %d %B %Y - %H:%M:%S", <?php echo $rawdata[0]["unixtime"]; ?>) })() },
+                          $('#container').highcharts({  title:    {   text: (function() { return Highcharts.dateFormat("%A, %d %B %Y - %H:%M:%S", <?php echo 1000*$rawdata[0]["unixtime"]; ?>) })() },
                                                         xAxis:    {   type: 'datetime',
                                                                       tickPixelInterval: 1
                                                                   },
@@ -113,7 +113,10 @@
               );
         </script>
   
-  <meta http-equiv="refresh" content="5;/mediciones/powermeter/index.php">
+  <meta http-equiv="refresh" content="5;/mediciones/BT_B1/index.php">
+  <a href="/mediciones/scada/">SCADA</a>
+  <br>
+  <a href="/index2.php" target="_blank">AppServ</a>
 
 </body>
 </html>

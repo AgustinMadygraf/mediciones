@@ -25,10 +25,11 @@ ALTER TABLE `scada`
 COMMIT;
 
 INSERT INTO `scada` ( `item`, `pot_III`, `unixtime`, `observaciones`, `v_r`, `v_s`, `v_t`, `energia_30`) VALUES
-( 'POT_MT', 290, 0, 'Edenor', 0, 0, 0, 0),
-( 'POT_BT_A', 100, 0, 'Subestación transformadora A&C', 0, 0, 0, 0),
-( 'POT_BT_B', 190, 0, 'Subestación transformadora EASA', 0, 0, 0, 0),
-( 'POT_BT_A1', 5, 0, 'maq de bolsas', 0, 0, 0, 0),
-( 'POT_BT_A2', 95, 0, 'M300-1; compresores; Hitachi; Iluminación', 0, 0, 0, 0),
-( 'POT_BT_B1', 85, 0, 'M1000 Beiren', 0, 0, 0, 0),
-( 'POT_BT_B2', 105, 0, 'Carrier, compresores, iluminación, Worldcolor', 0, 0, 0, 0);
+( 'POT_MT'    , 0, 0, 'Edenor', 0, 0, 0, 0),
+( 'POT_BT_A'  , 0, 0, 'Subestación transformadora A&C', 0, 0, 0, 0),
+( 'POT_BT_B'  , 0, 0, 'Subestación transformadora EASA', 0, 0, 0, 0),
+( 'POT_BT_A1' , 0, 0, 'maq de bolsas', 0, 0, 0, 0),
+( 'POT_BT_A2' , 0, 0, 'M300-1; compresores; Hitachi; Iluminación', 0, 0, 0, 0),
+( 'POT_BT_B1' , 0, 0, 'M1000 Beiren', 0, 0, 0, 0),
+( 'POT_BT_B2' , 0, 0, 'Worldcolor', 0, 0, 0, 0),
+( 'POT_BT_B3' , 0, 0, 'Carrier, compresores, iluminación', 0, 0, 0, 0);
