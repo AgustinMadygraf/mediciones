@@ -2,27 +2,34 @@ import os
 import shutil
 import time
 
-file_path = 'C:/AppServ/www/mediciones/CSV/MT/2019-09-25.csv'
+# Carpeta donde se encuentran los archivos CSV
+csv_folder = 'C:/AppServ/www/CSV/MT/'
+
+# Ubicación donde se guardará el archivo renombrado
 save_location = 'C:/AppServ/www/mediciones/MT/'
+
+# Nuevo nombre que se le dará al archivo
 new_name = 'datos.csv'
 
-print(f"file_path: {file_path}")
-print(f"save_location: {save_location}")
+# Obtener la lista de archivos CSV en la carpeta
+csv_files = [f for f in os.listdir(csv_folder) if f.endswith('.csv')]
 
-# Verificar si el archivo existe en la ubicación especificada
-if os.path.isfile(file_path):
-    # Obtener el nombre del archivo
-    file_name = os.path.basename(file_path)
+# Verificar si hay archivos CSV en la carpeta
+if len(csv_files) > 0:
+    # Obtener el primer archivo CSV de la lista
+    file_name = csv_files[0]
+    file_path = os.path.join(csv_folder, file_name)
 
     # Construir la nueva ruta de destino con el nombre de archivo modificado
     new_file_path = os.path.join(save_location, new_name)
 
-    # Renombrar el archivo
+    # Renombrar el archivo moviéndolo a la nueva ubicación con el nuevo nombre
     shutil.move(file_path, new_file_path)
 
     print("Renombrado completado.")
 else:
-    print("El archivo no existe en la ubicación especificada.")
+    print("No hay archivos CSV en la carpeta.")
 
 # Pausa para visualizar el resultado
 time.sleep(1)
+exec(open("upd_sql_all_powermeter.py").read())

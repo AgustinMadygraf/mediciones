@@ -1,13 +1,14 @@
 import csv
 import requests
 import time
-
+from datetime import datetime
 
 # Definir la URL del archivo procesar_powermeter.php
 url = 'http://localhost/mediciones/MT/procesar_powermeter.php'
 # Abrir el archivo CSV y leer los datos
-input(url)
-
+print()
+print(url)
+print()
 with open('datos.csv', newline='') as csvfile:
     # Crear un lector CSV
     reader = csv.DictReader(csvfile)
@@ -50,25 +51,51 @@ with open('datos.csv', newline='') as csvfile:
         amp_N   = row['Corriente de Neutro']
         DM_A2   = row['Demanda Maxima A2']
         DM_A3   = row['Demanda Maxima A3']
+
         
         Ea_III  = row['Energia Activa']
         EqiIII  = row['Energia Reactiva Inductiva']
         EqcIII  = row['Energia Reactiva Capacitiva']
 
+        Pa_III = float(Pa_III)/100
+        Pa_III = int(Pa_III)
+        Pa_III =float(Pa_III)/10
+
+        fecha_string = hora
+        fecha_datetime = datetime.strptime(fecha_string, "%a %b %d %H:%M:%S %Y")
+        unixtime = int(fecha_datetime.timestamp())
+        unixtime = unixtime/15
+        unixtime = int(unixtime)
+        unixtime = unixtime*15
+        unixtime = unixtime+15
+
+
+
         # Enviar los datos al archivo procesar_powermeter.php
         payload = {
-            'hora'                          : hora,
-            'Potencia Activa III'           : Pa_III,
-            'Tension entre Lineas L1 y L2'  : v_L1_L2,
-            'Tension entre Lineas L2 y L3'  : v_L2_L3,
-            'Tension entre Lineas L3 y L1'  : v_L3_L1,   
+            'hora'      : hora,
+            'unixtime'  : unixtime,
+            'Pa_III'    : Pa_III,
+            'v_L1_L2'   : v_L1_L2,
+            'v_L2_L3'   : v_L2_L3,
+            'v_L3_L1'   : v_L3_L1,   
         }
+        print(hora)
+        print(unixtime)
+        print(Pa_III)
+        print(v_L1_L2)
+        print(v_L2_L3)
+        print(v_L3_L1)
+        print("")
+        #input(payload)
 
-        input(payload)
         r = requests.get(url, params=payload)
-        input(r.text)  # Mostrar la respuesta del servidor
+        print(r.text)  # Mostrar la respuesta del servidor
+        print("")
+        print("")        
             
 
 print("")
 print("finalizado")
 print("")
+exec(open("upd_datos_csv_powermeter.py").read())

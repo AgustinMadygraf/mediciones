@@ -86,7 +86,7 @@
                                                                   },
                                                         legend:     { enabled: true     },
                                                         exporting:  { enabled: true  },
-                                                        series:     [ { name: 'Potencia maquina de bolsas', 
+                                                        series:     [ { name: 'Potencia Worldcolor', 
                                                                         animation: false,
                                                                         data: (function() { var data = [];
                                                                                             <?php 

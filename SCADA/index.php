@@ -41,15 +41,29 @@
                           }
   
   
-	$sql = "SELECT `datetime`, `pot_III`, `v_r`, `v_s`, `v_t` FROM `scada` WHERE `item` = 'POT_BT_A1'  ";
+	$sql = "SELECT `datetime`, `pot_III`, `v_r`, `v_s`, `v_t` FROM `scada` ";
 	//Array Multidimensional
 	//echo "sql = <br>".$sql."<br.>";
 	$rawdata = getArraySQL($sql);
-	$pot_III_BT_A1 = $rawdata[0]["pot_III"];
-	$datetime_BT_A1 = $rawdata[0]["datetime"];
-	$v_r_BT_A1 = $rawdata[0]["v_r"];
-	$v_s_BT_A1 = $rawdata[0]["v_s"];
-	$v_t_BT_A1 = $rawdata[0]["v_t"];
+
+	$pot_III_BT_A	= $rawdata[1]["pot_III"];
+	$datetime_BT_A	= $rawdata[1]["datetime"];
+	$v_r_BT_A 		= $rawdata[1]["v_r"];
+	$v_s_BT_A 		= $rawdata[1]["v_s"];
+	$v_t_BT_A 		= $rawdata[1]["v_t"];
+
+	$pot_III_BT_A1	= $rawdata[3]["pot_III"];
+	$datetime_BT_A1 = $rawdata[3]["datetime"];
+	$v_r_BT_A1 		= $rawdata[3]["v_r"];
+	$v_s_BT_A1 		= $rawdata[3]["v_s"];
+	$v_t_BT_A1 		= $rawdata[3]["v_t"];
+		
+	$pot_III_BT_B1 	= $rawdata[5]["pot_III"];
+	$datetime_BT_B1 = $rawdata[5]["datetime"];
+	$v_r_BT_B1 		= $rawdata[5]["v_r"];
+	$v_s_BT_B1 		= $rawdata[5]["v_s"];
+	$v_t_BT_B1 		= $rawdata[5]["v_t"];
+
 	$actualizacion = $_GET['actualizacion'];
 
 	if ($actualizacion === 'true') {
@@ -70,24 +84,28 @@
 			<div class="duplicate">
 				<div class="container">
 					<div class='box'>
-						<h3>Cámara de Medición</h3>
-						<h3>Media Tensión</h3>
-						<p>Valor: 290</p>
+					<h3><a href="/mediciones/MT">Cámara de Media Tensión</h3>
+						<h3>Edenor</a></h3>
+						<p><br></p>
+						<p>Valor: <?php echo $pot_III_MT;?> kW</p>
 						<p>Fecha y Hora:</p>
-						<p>0000-00-00 00:00:00</p>
+						<p><?php echo $datetime_MT;?></p><br>
+						<p>Voltaje fase R: <?php echo $v_r_MT;?></p>
+						<p>Voltaje fase S: <?php echo $v_s_MT;?></p>
+						<p>Voltaje fase T: <?php echo $v_t_MT;?></p>	
 
 
 						<div class="container">
 					<div class='box'>
-						<h3>Subestación transformadora</h3>
-						<h3>A&C</h3>
+					<h3><a href="/mediciones/BT_A">Subestación transformadora</h3>
+						<h3>A&C</a></h3>
 						<p><br></p>
-						<p>Valor: <?php echo $pot_III_BT_B1;?> kW</p>
+						<p>Valor: <?php echo $pot_III_BT_A;?> kW</p>
 						<p>Fecha y Hora:</p>
-						<p><?php echo $datetime_BT_B1;?></p><br>
-						<p>Voltaje fase R: <?php echo $v_r_BT_B1;?></p>
-						<p>Voltaje fase S: <?php echo $v_s_BT_B1;?></p>
-						<p>Voltaje fase T: <?php echo $v_t_BT_B1;?></p>	
+						<p><?php echo $datetime_BT_A;?></p><br>
+						<p>Voltaje fase R: <?php echo $v_r_BT_A;?></p>
+						<p>Voltaje fase S: <?php echo $v_s_BT_A;?></p>
+						<p>Voltaje fase T: <?php echo $v_t_BT_A;?></p>	
 						<div class="container">
 							<div class='box'>
 								<h3><a href="/mediciones/BT_A1">Maq de bolsas</a></h3>
@@ -144,7 +162,9 @@
 				</div>
 					</div>
 				</div>
-				<a href="/mediciones/scada/update_BT_A1.php">Actualizar</a>
+				<a href="/mediciones/scada/update_BT_A1.php">Actualizar 1</a>
+				<a href="/mediciones/scada/update_BT_B1.php">Actualizar 2</a>
+
 				<meta http-equiv='refresh' content='<?php echo $segundos;?>;url=/mediciones/scada/update_BT_A1.php'>
 				<br>
 				<a href="/index2.php" target="_blank">AppServ</a>

@@ -19,7 +19,7 @@ if (isset($_GET['unixtime']) && isset($_GET['potencia_s']) && isset($_GET['poten
   $potencia_r = $_GET['potencia_r'];
   $potencia_t = $_GET['potencia_t'];
 
-  $sql = "INSERT INTO MT (unixtime, potencia_s, potencia_r, potencia_t)
+  $sql = "INSERT INTO BT_A (unixtime, potencia_s, potencia_r, potencia_t)
   VALUES ('$unixtime', '$potencia_s', '$potencia_r', '$potencia_t')";
 
   if ($conn->query($sql) === TRUE) {

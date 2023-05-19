@@ -2,9 +2,9 @@ import os
 import requests
 import time
 
-url = 'http://panel.powermeter.com.ar/descargar/directa/inst/7c275d46-0122-4c05-81f8-e973ecbe26d7/'
+url = 'http://panel.powermeter.com.ar/descargar/directa/inst/f2efe1a1-f021-4288-8a22-be86df14308c/'
 filename = 'datos.csv'
-save_location = 'C:/AppServ/www/mediciones/BT_B1/'
+save_location = 'C:/AppServ/www/mediciones/BT_A/'
 nombre_archivo = 'datos.csv'
 print()
 print(f"url: {url}")

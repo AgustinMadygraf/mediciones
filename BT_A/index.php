@@ -48,7 +48,7 @@
                           }
   
   
-                          $sql = "SELECT `unixtime`, `pot_III` from `MT` ORDER BY `MT`.`unixtime` DESC";
+                          $sql = "SELECT `unixtime`, `potencia_III` from `BT_A` ORDER BY `BT_A`.`unixtime` DESC";
                           //Array Multidimensional
                           //echo "sql = ".$sql."<br.>";
                           $rawdata = getArraySQL($sql);
@@ -86,13 +86,13 @@
                                                                   },
                                                         legend:     { enabled: true     },
                                                         exporting:  { enabled: true  },
-                                                        series:     [ { name: 'Potencia maquina de bolsas', 
+                                                        series:     [ { name: 'Potencia Subestación A&C', 
                                                                         animation: false,
                                                                         data: (function() { var data = [];
                                                                                             <?php 
                                                                                                   for ($i = 0 ;$i  <count($rawdata);$i++)
                                                                                                       { $unixtime_v2 = $rawdata[$i]["unixtime"]*1000 ;
-                                                                                                        echo " data.push([ ".$unixtime_v2.",".$rawdata[$i]["pot_III"] ."]);"; }  ?>
+                                                                                                        echo " data.push([ ".$unixtime_v2.",".$rawdata[$i]["potencia_III"] ."]);"; }  ?>
                                                                                            return data;
                                                                                           }
                                                                                           
@@ -113,7 +113,7 @@
               );
         </script>
   
-  <meta http-equiv="refresh" content="5;/mediciones/MT/index.php">
+  <meta http-equiv="refresh" content="5;/mediciones/BT_A/index.php">
   <a href="/mediciones/scada/">SCADA</a>
   <br>
   <a href="/index2.php" target="_blank">AppServ</a>

@@ -2,7 +2,7 @@ CREATE TABLE `MT` (
   `id`        INT(11) NOT NULL AUTO_INCREMENT,
   `fecha`     VARCHAR(255) NOT NULL,
   `unixtime`  INT(16) NOT NULL,
-  `datetime`  DATETIME NOT NULL,
+  `datetime` datetime GENERATED ALWAYS AS (FROM_UNIXTIME(`unixtime`)) VIRTUAL,
   `pot_III`   FLOAT NOT NULL,
   `v_l1_l2`   FLOAT NOT NULL,
   `v_l2_l3`   FLOAT NOT NULL,
