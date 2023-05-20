@@ -2,12 +2,14 @@ version: '3'
 services:
   db:
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+#    command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      - MYSQL_ROOT_PASSWORD=password
+
     volumes:
       - db_data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d # Ruta de importación de la base de datos
     ports:
       - "3306:3306"
 
@@ -30,6 +32,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./src:/var/www/html
+      - ./FSC:/var/www/html/FSC
+      - ./SCADA:/var/www/html/SCADA
+      - ./includes:/var/www/html/includes
+      - ./powermeter:/var/www/html/powermeter
 volumes:
   db_data: {}

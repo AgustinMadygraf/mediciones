@@ -10,9 +10,9 @@
   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   
   <?php 
-  function conectarBD(){  $server = "localhost";
+  function conectarBD(){  $server = "172.24.0.2:3306";
                           $usuario = "root";
-                          $pass = "12345678";
+                          $pass = "password";
                           $BD = "powermeter";
                            //variable que guarda la conexi�n de la base de datos
                           $conexion = mysqli_connect($server, $usuario, $pass, $BD);
