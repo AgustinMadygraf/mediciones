@@ -48,7 +48,7 @@
                           }
   
   
-                          $sql = "SELECT `unixtime`, `potencia_III` from `BT_B1` ORDER BY `BT_B1`.`unixtime` DESC";
+                          $sql = "SELECT `unixtime`, `potencia_III` from `BT_B` ORDER BY `BT_B`.`unixtime` DESC";
                           //Array Multidimensional
                           //echo "sql = ".$sql."<br.>";
                           $rawdata = getArraySQL($sql);
@@ -113,7 +113,7 @@
               );
         </script>
   
-  <meta http-equiv="refresh" content="5;/mediciones/BT_B1/index.php">
+  <meta http-equiv="refresh" content="5;/mediciones/BT_B/index.php">
   <a href="/mediciones/scada/">SCADA</a>
   <br>
   <a href="/index2.php" target="_blank">AppServ</a>

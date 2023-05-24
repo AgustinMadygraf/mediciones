@@ -24,19 +24,20 @@ if ($conn->connect_error) {
   $v_L3_L1  = $_GET['v_L3_L1'];
   
   // Verificar si ya existe un registro con el mismo valor de unixtime
-
-  // Insertar datos en la base de datos
-  $sql = "INSERT INTO MT (`fecha`,`unixtime`, `pot_III`, `v_L1_L2`, `v_L2_L3`, `v_L3_L1` ) VALUES ('$hora','$unixtime', '$Pa_III', '$v_L1_L2', '$v_L2_L3', '$v_L3_L1' )";
-  
-  
-  if ($conn->query($sql) === TRUE)  {
-        echo "Los datos han sido ingresados correctamente en la base de datos";
-  } else {
-        echo "Error al ingresar datos: " . $conn->error;
-  }
-  //}
-
-
+  $sql = "SELECT * FROM BT_A1 WHERE unixtime = '$unixtime'";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) 
+            {     echo "El registro unixtime = $unixtime ya existe en la base de datos.";} 
+      else  {
+            // Insertar datos en la base de datos
+            $sql = "INSERT INTO MT (`fecha`,`unixtime`, `pot_III`, `v_L1_L2`, `v_L2_L3`, `v_L3_L1` ) VALUES ('$hora','$unixtime', '$Pa_III', '$v_L1_L2', '$v_L2_L3', '$v_L3_L1' )";
+            
+            if ($conn->query($sql) === TRUE)  {
+                  echo "Los datos han sido ingresados correctamente en la base de datos";
+            } else {
+                  echo "Error al ingresar datos: " . $conn->error;
+            }
+            }
 // Cerrar conexión a la base de datos
 $conn->close();
 ?>

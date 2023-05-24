@@ -13,14 +13,14 @@ if ($conn->connect_error) {
 }
 
 // Guardar los valores en la tabla
-if (isset($_GET['unixtime']) && isset($_GET['potencia_s']) && isset($_GET['potencia_r']) && isset($_GET['potencia_t']) ) {
+if (isset($_GET['unixtime']) && isset($_GET['potencia_r']) && isset($_GET['potencia_s']) && isset($_GET['potencia_t']) ) {
   $unixtime = $_GET['unixtime'];
-  $potencia_s = $_GET['potencia_s'];
-  $potencia_r = $_GET['potencia_r'];
+  $potencia_s = $_GET['potencia_r'];
+  $potencia_r = $_GET['potencia_s'];
   $potencia_t = $_GET['potencia_t'];
 
-  $sql = "INSERT INTO BT_B1 (unixtime, potencia_s, potencia_r, potencia_t)
-  VALUES ('$unixtime', '$potencia_s', '$potencia_r', '$potencia_t')";
+  $sql = "INSERT INTO BT_B (unixtime, potencia_r, potencia_s, potencia_t)
+  VALUES ('$unixtime', '$potencia_r', '$potencia_s', '$potencia_t')";
 
   if ($conn->query($sql) === TRUE) {
     echo "Datos guardados correctamente";

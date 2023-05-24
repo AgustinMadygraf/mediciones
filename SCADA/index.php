@@ -58,6 +58,12 @@
 	$v_s_BT_A1 		= $rawdata[3]["v_s"];
 	$v_t_BT_A1 		= $rawdata[3]["v_t"];
 		
+	$pot_III_BT_B 	= $rawdata[5]["pot_III"];
+	$datetime_BT_B	= $rawdata[5]["datetime"];
+	$v_r_BT_B 		= $rawdata[5]["v_r"];
+	$v_s_BT_B 		= $rawdata[5]["v_s"];
+	$v_t_BT_B 		= $rawdata[5]["v_t"];
+		
 	$pot_III_BT_B1 	= $rawdata[5]["pot_III"];
 	$datetime_BT_B1 = $rawdata[5]["datetime"];
 	$v_r_BT_B1 		= $rawdata[5]["v_r"];
@@ -93,8 +99,6 @@
 						<p>Voltaje fase R: <?php echo $v_r_MT;?></p>
 						<p>Voltaje fase S: <?php echo $v_s_MT;?></p>
 						<p>Voltaje fase T: <?php echo $v_t_MT;?></p>	
-
-
 						<div class="container">
 					<div class='box'>
 					<h3><a href="/mediciones/BT_A">Subestación transformadora</h3>
@@ -125,34 +129,38 @@
 						</div>
 					</div>
 					<div class='box'>
-						<h3>Subestación transformadora</h3>
-						<h3> EASA</h3>
+						<h3><a href="/mediciones/BT_B">Subestación transformadora</a></h3>
+						<h3><a href="/mediciones/BT_B">EASA</a></h3>
 						<p><br></p>
-						<p>Valor: 190</p>
+						<p>Valor: <?php echo $pot_III_BT_B;?> kW</p>
 						<p>Fecha y Hora:</p>
-						<p>0000-00-00 00:00:00</p>
+						<p><?php echo $datetime_BT_B;?></p><br>
+						<p>Voltaje fase R: <?php echo $v_r_BT_B;?></p>
+						<p>Voltaje fase S: <?php echo $v_s_BT_B;?></p>
+						<p>Voltaje fase T: <?php echo $v_t_BT_B;?></p>
 						<div class="container">
-
-
-					<div class='box'>
-								<h3><a href="/mediciones/BT_B1">WorldColor</a></h3>
+							<div class='box'>
+								<h3>WorldColor</h3>
 								<p>Valor: <?php echo $pot_III_BT_B1;?> kW</p>
 								<p>Fecha y Hora:</p>
 								<p><?php echo $datetime_BT_B1;?></p><br>
 								<p>Voltaje fase R: <?php echo $v_r_BT_B1;?></p>
 								<p>Voltaje fase S: <?php echo $v_s_BT_B1;?></p>
 								<p>Voltaje fase T: <?php echo $v_t_BT_B1;?></p>																
-					</div>					
+							</div>					
 
 					<div class='box'>
 						<h3>M1000 Beiren</h3>
-						<p>Valor: 85</p>
-						<p>Fecha y Hora:</p>
-						<p>0000-00-00 00:00:00</p>
+								<p>Valor: <?php echo $pot_III_BT_B2;?> kW</p>
+								<p>Fecha y Hora:</p>
+								<p><?php echo $datetime_BT_B2;?></p><br>
+								<p>Voltaje fase R: <?php echo $v_r_BT_B2;?></p>
+								<p>Voltaje fase S: <?php echo $v_s_BT_B2;?></p>
+								<p>Voltaje fase T: <?php echo $v_t_BT_B2;?></p>	
 					</div>
 
 					<div class='box'>
-						<h3>Carrier, compresores, iluminación, Worldcolor</h3>
+						<h3>Carrier, compresores, iluminación</h3>
 						<p>Valor: 105</p>
 						<p>Fecha y Hora:</p>
 						<p>0000-00-00 00:00:00</p>

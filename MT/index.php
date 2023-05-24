@@ -1,6 +1,8 @@
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" href="style.css">
+
 </head>
  <body>
   <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -46,13 +48,46 @@
                               //devolvemos rawdata
                               return $rawdata;
                           }
-  
-  
-                          $sql = "SELECT `unixtime`, `pot_III` from `MT` ORDER BY `MT`.`unixtime` DESC";
+                     
+                          
+                          $sql2 = "SELECT `unixtime` FROM `MT` ORDER BY `unixtime` DESC LIMIT 1";
                           //Array Multidimensional
-                          //echo "sql = ".$sql."<br.>";
-                          $rawdata = getArraySQL($sql);
-
+                          $rawdata  = getArraySQL($sql2);
+                          $cont     = $rawdata[0]["unixtime"];
+                          $conta    = $cont;
+                          $periodo = 3600; // Valor predeterminado si no se cumple ninguna de las condiciones
+                          if (isset($_GET['conta'])) {  $conta = $_GET['conta'];  } 
+                          if (isset($_GET['periodo'])) {
+                                  switch ($_GET['periodo']) {
+                                      case "hora":
+                                          $periodo = 3600;
+                                          break;
+                                      case "dia":
+                                          $periodo = 86400;
+                                          break;
+                                      case "semana":
+                                          $periodo = 604800;
+                                          break;
+                                      // Puedes agregar más casos según tus necesidades
+                                      default:
+                                          // Acción a tomar cuando no se cumple ninguna de las condiciones anteriores
+                                          break;
+                                  }
+                              } else {
+                                  echo '<meta http-equiv="refresh" content="0;url=index.php?periodo=hora">';
+                                  exit; // Agregamos la instrucción exit para detener la ejecución del código
+                              }
+                          
+              
+          
+          $conta1 = $conta;
+          $conta2 = $conta - $periodo;
+                          
+          
+          $sql = "SELECT `unixtime`, `pot_III` FROM `MT` WHERE `unixtime` BETWEEN $conta2 AND $conta ORDER BY `unixtime` DESC";
+          //Array Multidimensional
+          $rawdata = getArraySQL($sql);
+          echo "conta = ".$conta."<br>conta1 = ".$conta1."<br>conta 2 = ".$conta2;
    
   
   ?>
@@ -86,7 +121,7 @@
                                                                   },
                                                         legend:     { enabled: true     },
                                                         exporting:  { enabled: true  },
-                                                        series:     [ { name: 'Potencia maquina de bolsas', 
+                                                        series:     [ { name: 'Potencia Edenor', 
                                                                         animation: false,
                                                                         data: (function() { var data = [];
                                                                                             <?php 
@@ -113,10 +148,29 @@
               );
         </script>
   
-  <meta http-equiv="refresh" content="5;/mediciones/MT/index.php">
-  <a href="/mediciones/scada/">SCADA</a>
+  
+  
+<div class="form-container">
+  <form action="index.php" method="GET">
+    <?php if (isset($_GET['periodo'])) { echo "<input type='hidden' name='periodo' value=".$_GET['periodo'].">"; };
+    if (isset($_GET['conta'])) { echo "<input type='hidden' name='conta' value=".$_GET['conta'].">"; }  ?>
+    <button type="submit" name="conta" value="<?php echo $conta - $periodo; ?>">Anterior</button>
+    <input type="submit" name="periodo" value="hora">
+    <input type="submit" name="periodo" value="dia">
+    <input type="submit" name="periodo" value="semana">
+    <button type="submit" name="conta" value="<?php echo $conta; ?>">Siguiente</button>
+    <button type="submit" name="conta" value="<?php echo $conta; ?>">>></button>
+  </form>
+</div>
+
+
+<a href="/mediciones/scada/">SCADA</a>
   <br>
-  <a href="/index2.php" target="_blank">AppServ</a>
+<a href="/index2.php" target="_blank">AppServ</a>
+
+
+    
+
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-CREATE TABLE `BT_B1` (
+CREATE TABLE `BT_B` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `unixtime` int(16) NOT NULL,
   `potencia_r` float NOT NULL,

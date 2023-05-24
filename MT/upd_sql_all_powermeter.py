@@ -5,19 +5,25 @@ from datetime import datetime
 
 # Definir la URL del archivo procesar_powermeter.php
 url = 'http://localhost/mediciones/MT/procesar_powermeter.php'
+
 # Abrir el archivo CSV y leer los datos
 print()
 print(url)
 print()
-with open('datos.csv', newline='') as csvfile:
+with open('datos.csv', 'rb') as csvfile:
+    # Leer el contenido del archivo como texto
+    content = csvfile.read().decode('utf-8', 'ignore')
+    
+    # Remover los caracteres NUL
+    content = content.replace('\x00', '')
+    
     # Crear un lector CSV
-    reader = csv.DictReader(csvfile)
+    reader = csv.DictReader(content.splitlines(), delimiter=',', quoting=csv.QUOTE_NONE)
+
     # Iterar sobre cada fila del archivo
     for row in reader:
         # Obtener los valores de fecha, timestamp y potencias
-
-        hora    =  row['hora']
-
+        hora = row['hora']
         volt_L1 = row['Tension de Linea L1']
         amp_L1  = row['Corriente L1']
         Pa_L1   = row['Potencia Activa L1']
