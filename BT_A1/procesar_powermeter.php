@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 // Obtener valores del formulario
 //if (isset($_GET['unixtime']) && isset($_GET['potencia_r']) && isset($_GET['potencia_s']) && isset($_GET['potencia_t'])&& isset($_GET['v_r']) && isset($_GET['v_s']) && isset($_GET['v_t']) ) {
-if (isset($_GET['unixtime']) && isset($_GET['potencia_r']) && isset($_GET['potencia_s']) && isset($_GET['potencia_t']) ) {
+//if (isset($_GET['unixtime']) && isset($_GET['potencia_r']) && isset($_GET['potencia_s']) && isset($_GET['potencia_t']) ) {
   $unixtime = $_GET['unixtime'];
   $potencia_r = $_GET['potencia_r'];
   $potencia_s = $_GET['potencia_s'];

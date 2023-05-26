@@ -170,10 +170,9 @@
 				</div>
 					</div>
 				</div>
-				<a href="/mediciones/scada/update_BT_A1.php">Actualizar 1</a>
-				<a href="/mediciones/scada/update_BT_B1.php">Actualizar 2</a>
 
-				<meta http-equiv='refresh' content='<?php echo $segundos;?>;url=/mediciones/scada/update_BT_A1.php'>
+
+				<meta http-equiv='refresh' content='<?php echo $segundos;?>;url=/mediciones/scada/update.php'>
 				<br>
 				<a href="/index2.php" target="_blank">AppServ</a>
 

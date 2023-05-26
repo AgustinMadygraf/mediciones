@@ -3,9 +3,9 @@ import requests
 import time
 
 url = 'http://panel.powermeter.com.ar/descargar/directa/inst/56ae1c10-059b-4764-abec-f7bdc5e56603/'
-filename = 'datos.csv'
+filename = 'datos_inst.csv'
 save_location = 'C:/AppServ/www/mediciones/BT_A1/'
-nombre_archivo = 'datos.csv'
+nombre_archivo = 'datos_inst.csv'
 print()
 print(f"url: {url}")
 print()

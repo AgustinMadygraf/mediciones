@@ -6,7 +6,7 @@ import time
 # Definir la URL del archivo procesar_powermeter.php
 url = 'http://localhost/mediciones/BT_A1/procesar_powermeter.php'
 # Abrir el archivo CSV y leer los datos
-with open('datos.csv', newline='') as csvfile:
+with open('datos_inst.csv', newline='') as csvfile:
     # Crear un lector CSV
     reader = csv.DictReader(csvfile)
     # Iterar sobre cada fila del archivo

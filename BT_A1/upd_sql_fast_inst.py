@@ -2,18 +2,18 @@ import csv
 import requests
 import time
 
-print('enviar datos')
+print('Enviar datos')
 print("")
 time.sleep(1)
 # Definir la URL del archivo procesar_powermeter.php
-url = 'http://localhost/mediciones/BT_B1/procesar_powermeter.php'
+url = 'http://localhost/mediciones/BT_A1/procesar_powermeter.php'
 
 # Leer el archivo CSV y ordenar por unixtime en orden descendente
-with open('datos.csv', newline='') as csvfile:
+with open('datos_inst.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     sorted_rows = sorted(reader, key=lambda row: int(row['timestamp']), reverse=True)
 
-# Seleccionar las 3 primeras filas con el valor más alto de unixtime
+# Seleccionar las 12 primeras filas con el valor más alto de unixtime
 rows_to_send = sorted_rows[:12]
 
 # Iterar sobre las filas seleccionadas
@@ -39,10 +39,3 @@ for row in rows_to_send:
     r = requests.get(url, params=payload)
     print(r.text)  # Mostrar la respuesta del servidor
     time.sleep(1)
-
-# Mostrar una cuenta regresiva hasta que se reanude la ejecución del programa
-#print('Esperando 120 segundos...')
-#for i in range(5, 0, -1):
-#    print(f'Tiempo restante: {i} segundos', end='\r')
-#    time.sleep(1)
-#print('\n')
