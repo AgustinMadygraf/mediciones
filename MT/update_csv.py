@@ -11,7 +11,7 @@ connection = pymysql.connect(
 )
 
 # Directorio de archivos CSV
-csv_directory = 'C:\\AppServ\\www\\mediciones\\MT\\CSV'
+csv_directory = 'C:\AppServ\www\CSV'
 output_directory = 'C:\\AppServ\\www\\mediciones\\MT'
 output_filename = 'datos.csv'
 

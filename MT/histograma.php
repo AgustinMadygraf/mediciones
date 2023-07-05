@@ -6,13 +6,16 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Dinosaur', 'Length'],
+          ['Dinosaur', 'Length']
+        
           <?php
             for ($i = 0; $i < count($rawdata); $i++) {
               $unixtime_v2 = $rawdata[$i]["unixtime"] * 1000;
-              echo "data.push([" . $unixtime_v2 . "," . $rawdata[$i]["pot_III"] . "]);";
+              echo ",['" . $unixtime_v2 . "','" . $rawdata[$i]["pot_III"] . "']";
             }
             ?>
+
+        ]);
 
           var options = {
                             title: 'Approximating Normal Distribution',

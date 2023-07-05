@@ -44,6 +44,7 @@ try:
             else:
                 # Ya existe un registro con la misma fecha, omitir la inserción
                 print("Registro duplicado, omitiendo inserción.")
+                break
 
             cursor.close()
 
